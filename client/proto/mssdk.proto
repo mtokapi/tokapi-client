@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package mssdk;
+
+message MssdkRequest {
+    optional uint32 u1 = 1;
+    optional uint32 u2 = 2;
+    optional uint32 u3 = 3;
+    optional bytes encrypted_payload = 4;
+    optional sint64 current_time_in_ms = 5;
+}
+
+message MssdkResponse {
+    optional uint32 u1 = 1;
+    optional uint32 u2 = 2;
+    optional uint32 u3 = 3;
+    optional uint32 u4 = 4;
+    optional uint32 u5 = 5;
+    optional bytes body = 6;
+}

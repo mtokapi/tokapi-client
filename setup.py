@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tokapi-client",
-    version="0.0.2",
+    version="0.0.3",
     author="Somjik",
     description="Simple http client for TokApi rapid-api tiktok mobile API",
     long_description=long_description,
@@ -20,5 +20,5 @@ setuptools.setup(
     python_requires='>=3.6',
     packages=["client"],
     include_package_data=True,
-    install_requires=['httpx']
+    install_requires=['requests']
 )

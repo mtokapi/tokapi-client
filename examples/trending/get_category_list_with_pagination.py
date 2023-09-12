@@ -1,17 +1,16 @@
-from httpx import Response
-
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example():
     """
     Load trending categories for default US region
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     offset = 0
     for i in range(0, 3):
-        result: Response = api.get_categories(offset=offset)
+        result = api.get_categories(offset=offset)
         data = result.json()
 
         print('========== START PAGE ========== items count: {}'.format(len(data['category_list'])))

@@ -1,11 +1,12 @@
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example(music_id: str):
     """
     Print hashtag info
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     result = api.get_music_info_by_id(music_id)
     data = result.json()

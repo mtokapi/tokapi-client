@@ -1,11 +1,12 @@
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example_by_id(effect_id: str):
     """
     Print effect info by id
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     result = api.get_effect_info_by_id(effect_id)
     data = result.json()
@@ -20,7 +21,7 @@ def example_by_ids(ids: list):
     """
     Print effect infos by ids
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     result = api.get_effect_info_by_ids(ids)
     data = result.json()
