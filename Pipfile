@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-httpx = "*"
+requests = "==2.31.0"
+protobuf = "==4.24.3"
 
 [dev-packages]
 pytest = "*"
