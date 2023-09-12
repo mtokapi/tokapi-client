@@ -1,11 +1,12 @@
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example(user_id: str):
     """
     Print user followings info
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     max_time = 0
     for i in range(0, 3):

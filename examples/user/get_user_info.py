@@ -1,11 +1,12 @@
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example(user_id: str):
     """
     Print user info
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     result = api.get_user_info_by_id(user_id)
     data = result.json()
@@ -20,7 +21,7 @@ def example_qr_code(user_id: str):
     """
     Print user info
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     result = api.get_user_qr_code(user_id)
     data = result.json()

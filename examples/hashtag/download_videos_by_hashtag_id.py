@@ -1,17 +1,17 @@
 import concurrent.futures
 import os
 
-import httpx
-from httpx import Response
+import requests
 
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example(hashtag_id: str, dest_folder: str):
     """
     Download videos by specific hashtag to folder
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
     dest_folder = os.path.join(dest_folder, hashtag_id)
     if not os.path.exists(dest_folder):
@@ -22,7 +22,7 @@ def example(hashtag_id: str, dest_folder: str):
     offset = 0
     videos = []
     for i in range(0, 3):
-        result: Response = api.get_videos_by_hashtag_id(hashtag_id, offset=offset)
+        result = api.get_videos_by_hashtag_id(hashtag_id, offset=offset)
 
         data = result.json()
         videos.extend(data['aweme_list'])
@@ -38,10 +38,11 @@ def download_video(dest_folder: str, video_info: dict):
     filename = '{}.mp4'.format(video_info['aweme_id'])
     file_path = os.path.join(dest_folder, filename)
 
-    with httpx.stream("GET", video_info['video']['play_addr']['url_list'][0]) as response:
+    with requests.get("GET", video_info['video']['play_addr']['url_list'][0], stream=True) as response:
         print("Saving to", os.path.abspath(file_path))
+
         with open(file_path, 'wb') as f:
-            for chunk in response.iter_bytes(chunk_size=1024 * 8):
+            for chunk in response.iter_content(chunk_size=1024 * 8):
                 f.write(chunk)
 
 

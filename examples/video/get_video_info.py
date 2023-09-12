@@ -1,13 +1,14 @@
 from client.api import TokApi
+from examples.contants import API_KEY, BASE_URL
 
 
 def example_by_id(video_id: str):
     """
     Print video info by id
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
-    result = api.get_video_info_by_id(video_id)
+    result = api.get_video_info_by_id(video_id, region='FR')
     data = result.json()
 
     watch_url = data['aweme_detail']['video']['play_addr']['url_list'][0]
@@ -22,9 +23,9 @@ def example_by_link(video_web_link: str):
     """
     Print video info by web link
     """
-    api = TokApi('YOUR_RAPID_API_KEY')
+    api = TokApi(API_KEY, BASE_URL)
 
-    result = api.get_video_info_by_web_link(video_web_link)
+    result = api.get_video_info_by_web_link(video_web_link, region='FR')
     data = result.json()
 
     watch_url = data['aweme_detail']['video']['play_addr']['url_list'][0]

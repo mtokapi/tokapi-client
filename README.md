@@ -13,7 +13,11 @@ pip install tokapi-client
 ## Usage
 
 ```shell
+# For RapidAPI
 api = TokApi('YOUR_RAPID_API_KEY')
+
+# For api.tokapi.online
+api = TokApi('YOUR_API_KEY_FROM_DASHBOARD', base_url="https://api.tokapi.online")
 
 # Let's find some users by search query with pagination
 keyword = 'nike'
