@@ -4,7 +4,7 @@ import os
 import requests
 
 from client.api import TokApi
-from examples.contants import API_KEY, BASE_URL
+from examples.constants import API_KEY, BASE_URL
 
 
 def example(hashtag_id: str, dest_folder: str):

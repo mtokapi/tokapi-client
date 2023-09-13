@@ -1,10 +1,11 @@
 import json
 
 from client.api import TokApi
+from examples.constants import API_KEY, BASE_URL
 
 
 def example(email: str, password: str, birthday: str, region: str, proxy: str):
-    client = TokApi('YOUR_API_KEY', base_url="https://api.tokapi.online")
+    client = TokApi(API_KEY, base_url=BASE_URL)
 
     initial_signup_response = client.email_signup(email, password, birthday, region, proxy)
 

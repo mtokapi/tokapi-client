@@ -2,10 +2,11 @@ import time
 
 from client.api import TokApi
 from client.proto import mssdk_pb2
+from examples.constants import API_KEY, BASE_URL
 
 
 def example(mssdk_request_payload: str, payload_type: str):
-    client = TokApi('863efd5fc8184c34be21f95fa0b87e63', base_url='https://api.tokapi.online')
+    client = TokApi(API_KEY, base_url=BASE_URL)
 
     req = mssdk_pb2.MssdkRequest()
     req.u1 = 1077938244

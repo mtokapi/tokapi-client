@@ -1,9 +1,10 @@
 from client.api import TokApi
 from client.proto import mssdk_pb2
+from examples.constants import API_KEY, BASE_URL
 
 
 def example(mssdk_response: str):
-    client = TokApi('863efd5fc8184c34be21f95fa0b87e63', base_url='https://api.tokapi.online')
+    client = TokApi(API_KEY, base_url=BASE_URL)
 
     res = mssdk_pb2.MssdkResponse()
     res.ParseFromString(bytes.fromhex(mssdk_response))
